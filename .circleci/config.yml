@@ -24,4 +24,4 @@ workflows:
           branches:
             only:
               - dev
-              - dev/*
+              - /dev\/*/
