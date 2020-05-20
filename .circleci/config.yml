@@ -21,10 +21,15 @@ jobs:
       - checkout
       # specify any bash command here prefixed with `run: `
       - run: echo "dododo"
-
+  kakunin:
+    executor: default
+    steps:
+      - checkout
+      # specify any bash command here prefixed with `run: `
+      - run: echo "aaaaa"
 workflows:
   version: 2
-  deploykun:
+  default:
     jobs:
        - build:
            filters:
@@ -36,3 +41,8 @@ workflows:
              branches:
                only:
                  - master
+       - kakunin:
+           filters:
+             branches:
+               ignore:
+                 - dev
