@@ -15,6 +15,12 @@ jobs:
       # specify any bash command here prefixed with `run: `
       - run: cd go_test && go get -v -t -d ./...
       - run: cd go_test && go test -v ./...
+  echo:
+    executor: default
+    steps:
+      - checkout
+      # specify any bash command here prefixed with `run: `
+      - run: echo "dododo"
 workflows:
   version: 2
   default:
@@ -23,5 +29,9 @@ workflows:
         filters:
           branches:
             only:
-              - dev
-              - /dev\/*/
+              - /dev\/*/              
+      - echo:
+        filters:
+          branches:
+            only:
+              - master
