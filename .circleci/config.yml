@@ -21,17 +21,18 @@ jobs:
       - checkout
       # specify any bash command here prefixed with `run: `
       - run: echo "dododo"
+
 workflows:
   version: 2
   deploykun:
     jobs:
-      - build:
-        filters:
-          branches:
-            only:
-              - /dev\/*/              
-      - echo:
-        filters:
-          branches:
-            only:
-              - master
+       - build:
+           filters:
+             branches:
+               only:
+                 - /dev\/*/              
+       - echo:
+           filters:
+             branches:
+               only:
+                 - master
