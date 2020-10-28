@@ -1,17 +1,13 @@
 name: "Schedule Tag Tests"
 on:
   schedule:
-    - cron: '0 1 * * *'
+    - cron: '35 5 * * *'
 jobs:
   add_tag:
     name: add_tag
     runs-on: ubuntu-latest
     steps:
-      - name: git setting
-        run: |
-          git config --local user.email "taketani@mediba.jp"
-          git config --local user.name "medi-taketani"
-      - name: Commit files
+      - name: git tag
         run: |
           DATE=`date +"%Y%m%d"`
           TAG_NAME="dev-$DATE_1"
