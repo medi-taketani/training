@@ -1,12 +1,16 @@
 name: "Schedule Tag Tests"
 on:
   schedule:
-    - cron: '35 5 * * *'
+    - cron: '13 7 * * *'
 jobs:
   add_tag:
     name: add_tag
     runs-on: ubuntu-latest
     steps:
+      - name: checkout master
+        uses: actions/checkout@v2
+        with:
+          ref: master
       - name: git tag
         run: |
           DATE=`date +"%Y%m%d"`
