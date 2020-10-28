@@ -1,7 +1,7 @@
 name: "Schedule Tag Tests"
 on:
   schedule:
-    - cron: '13 7 * * *'
+    - cron: '55 7 * * *'
 jobs:
   add_tag:
     name: add_tag
@@ -14,8 +14,8 @@ jobs:
       - name: git tag
         run: |
           DATE=`date +"%Y%m%d"`
-          TAG_NAME="dev-$DATE_1"
+          TAG_NAME="dev-${DATE}_1"
           git tag "$TAG_NAME"
           git push origin "$TAG_NAME"
         env:
-          TZ: 'Asia/Tokyo' 
+          TZ: 'Asia/Tokyo'
